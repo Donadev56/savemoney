@@ -107,8 +107,8 @@ class Option {
   final Widget icon;
   final Widget trailing;
   final Color color;
-  final TextStyle? titleStyle ;
-  final Color? tileColor ;
+  final TextStyle? titleStyle;
+  final Color? tileColor;
 
   Option({
     required this.title,
@@ -116,7 +116,7 @@ class Option {
     required this.trailing,
     required this.color,
     this.titleStyle,
-    this.tileColor ,
+    this.tileColor,
   });
 
   Map<String, dynamic> toJson() {
@@ -134,13 +134,53 @@ class Option {
       icon: json['icon'] == 'Icon' ? Icon(Icons.home) : SizedBox(),
       trailing: json['trailing'] == ' SizedBox' ? SizedBox() : SizedBox(),
       color: Color(json['color']),
-
-      
     );
   }
 
   @override
   String toString() {
     return 'Option(title: $title, icon: $icon, trailing: $trailing, color: $color)';
+  }
+}
+
+
+class Contact {
+  final String name;
+  final int userId;
+  final String contactCode;
+  final String imageUrl ;
+
+
+  Contact({
+    required this.name,
+    required this.userId,
+    required this.contactCode,
+    this.imageUrl = '',
+
+   
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'name': name,
+      'userId': userId,
+      'contactCode': contactCode,
+      'imageUrl': imageUrl, 
+    };
+  }
+
+  factory Contact.fromJson(Map<String, dynamic> json) {
+    return Contact(
+      name: json['name'],
+      userId: json['userId'],
+      contactCode: json['contactCode'],
+      imageUrl: json['imageUrl'],  
+    
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Contact(name: $name, userId: $userId, contactCode: $contactCode  , imageUrl: $imageUrl)';
   }
 }
