@@ -9,6 +9,7 @@ import 'package:save_money/resources/colors.dart';
 import 'package:save_money/types/types.dart';
 import 'package:save_money/utils/color.dart';
 import 'package:save_money/utils/constant.dart';
+import 'package:save_money/utils/document_manager.dart';
 import 'package:save_money/widgets/bottom.dart';
 import 'package:save_money/widgets/divider.dart';
 import 'package:save_money/widgets/transaction_widget.dart';
@@ -82,8 +83,12 @@ class _MainDashboardViewState extends State<MainDashboardView> {
   void initState() {
     super.initState();
     getColors();
+    getDir();
   }
-
+Future<void> getDir () async {
+  final manager = DocumentManager();
+  log("the directory is ${await manager.getDocAppDir()}");
+}
   LineChartData mainData() {
     return LineChartData(
       gridData: FlGridData(

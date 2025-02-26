@@ -3,6 +3,9 @@ import 'package:flutter_localization/flutter_localization.dart';
 import 'package:save_money/languages/languages.dart';
 import 'package:save_money/view/main/learn.dart';
 import 'package:save_money/view/main/main.dart';
+import 'package:save_money/view/main/settings.dart';
+import 'package:save_money/view/main/transactions.dart';
+import 'package:save_money/view/main/wallets.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +23,9 @@ class MyApp extends StatefulWidget {
 class Routes {
   static const String mainDashboard = "/main/dashboard";
   static const String learnPage = "/main/learn";
+  static const String transactionsPage = "/main/transactions";
+  static const String wallets = "/main/wallets";
+  static const String settings = "/main/settings";
 }
 
 class _MyAppState extends State<MyApp> {
@@ -82,10 +88,14 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         useMaterial3: true,
       ),
-      initialRoute: Routes.learnPage,
+      initialRoute: Routes.settings,
+
       routes: {
         Routes.mainDashboard: (context) => MainDashboardView(),
         Routes.learnPage: (context) => LearnView(),
+        Routes.transactionsPage: (context) => TransactionsView(),
+        Routes.wallets : (context) => WalletsView(),
+        Routes.settings: (context) => SettingsView(), 
       },
     );
   }

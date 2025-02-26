@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:save_money/logger/log.dart';
 import 'package:save_money/types/types.dart';
 
 typedef OnTapWithIndex = void Function(int index);
@@ -79,6 +80,7 @@ class CustomOptionWidget extends StatelessWidget {
                             onTap: () {
                               onTap(i);
                             },
+                            subtitle: option.subtitle ,
                             leading: option.icon,
                             title: Text(option.title, style: option.titleStyle),
                             trailing: option.trailing,
