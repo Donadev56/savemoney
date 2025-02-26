@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:save_money/types/types.dart';
+
 typedef OnTapWithIndex = void Function(int index);
 
 List<Map<String, dynamic>> bottomOptions = [
@@ -10,7 +11,11 @@ List<Map<String, dynamic>> bottomOptions = [
     "label": "Transactions",
     "route": "/main/transactions"
   },
-  {"icon": LucideIcons.layoutDashboard, "label": "Dashboard", "route": "/main/dashboard"},
+  {
+    "icon": LucideIcons.layoutDashboard,
+    "label": "Dashboard",
+    "route": "/main/dashboard"
+  },
   {
     "icon": Icons.account_balance_wallet,
     "label": "Wallets",
@@ -18,9 +23,9 @@ List<Map<String, dynamic>> bottomOptions = [
   },
   {"icon": Icons.settings, "label": "Settings", "route": "/main/settings"}
 ];
- Map<String, List<Transaction>> detailedTransactions = {
-    "2025-02-25" : [
-          Transaction(
+Map<String, List<Transaction>> detailedTransactions = {
+  "2025-02-25": [
+    Transaction(
         amount: 125,
         title: "Market money",
         description: "Money spent on the evening market.",
@@ -60,8 +65,8 @@ List<Map<String, dynamic>> bottomOptions = [
         icon: Icons.movie_filter,
         date: 1737844954,
         color: Colors.amberAccent),
-    ], 
-  "2025-02-24" : [
+  ],
+  "2025-02-24": [
     Transaction(
         amount: 100,
         title: "Groceries",
@@ -83,7 +88,7 @@ List<Map<String, dynamic>> bottomOptions = [
         icon: Icons.restaurant,
         date: 1737844954),
   ],
-  "2025-01-03" : [
+  "2025-01-03": [
     Transaction(
         amount: 175,
         title: "Entertainment",
@@ -98,13 +103,11 @@ List<Map<String, dynamic>> bottomOptions = [
         icon: Icons.local_hospital,
         date: 1737844954),
     Transaction(
-      amount: 200,
+        amount: 200,
         title: "Transportation",
         description: "Money spent on the car rental.",
         icon: Icons.directions_car,
         date: 1737844954,
         color: Colors.lightBlueAccent),
-    ],
-
-
-  };
+  ],
+};

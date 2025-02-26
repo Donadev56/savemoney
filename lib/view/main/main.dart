@@ -85,10 +85,12 @@ class _MainDashboardViewState extends State<MainDashboardView> {
     getColors();
     getDir();
   }
-Future<void> getDir () async {
-  final manager = DocumentManager();
-  log("the directory is ${await manager.getDocAppDir()}");
-}
+
+  Future<void> getDir() async {
+    final manager = DocumentManager();
+    log("the directory is ${await manager.getDocAppDir()}");
+  }
+
   LineChartData mainData() {
     return LineChartData(
       gridData: FlGridData(

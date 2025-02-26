@@ -1,10 +1,12 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+
 enum WalletRole {
-  expenses ,
+  expenses,
   savings,
 }
+
 class Transaction {
   final double amount;
   final String title;
@@ -29,7 +31,7 @@ class Transaction {
       'description': description,
       'icon': icon.codePoint,
       'date': date,
-      'color': color?.value ?? 0xFFFFFFFF ,
+      'color': color?.value ?? 0xFFFFFFFF,
     };
   }
 
@@ -37,7 +39,7 @@ class Transaction {
     return Transaction(
       amount: json['amount'],
       title: json['title'],
-      description: json['description'] ,
+      description: json['description'],
       icon: IconData((json['icon'] as int)),
       date: json['date'] as int,
       color: Color(json['color'] as int),
@@ -130,7 +132,6 @@ class Option {
       'icon': icon.runtimeType.toString(),
       'trailing': trailing.runtimeType.toString(),
       'color': color.value,
-      
     };
   }
 
@@ -149,21 +150,17 @@ class Option {
   }
 }
 
-
 class Contact {
   final String name;
   final int userId;
   final String contactCode;
-  final String imageUrl ;
-
+  final String imageUrl;
 
   Contact({
     required this.name,
     required this.userId,
     required this.contactCode,
     this.imageUrl = '',
-
-   
   });
 
   Map<String, dynamic> toJson() {
@@ -171,7 +168,7 @@ class Contact {
       'name': name,
       'userId': userId,
       'contactCode': contactCode,
-      'imageUrl': imageUrl, 
+      'imageUrl': imageUrl,
     };
   }
 
@@ -180,8 +177,7 @@ class Contact {
       name: json['name'],
       userId: json['userId'],
       contactCode: json['contactCode'],
-      imageUrl: json['imageUrl'],  
-    
+      imageUrl: json['imageUrl'],
     );
   }
 
@@ -195,14 +191,13 @@ class Wallet {
   final String walletName;
   final WalletRole role;
   final Map<String, List<Transaction>> transactions;
-  final int creationDate ;
-  final int balance ;
-  final String id ;
-  final Color? color ;
-  final int? target ;
-  final int? amountSpent ;
-  final IconData? icon ;
-
+  final int creationDate;
+  final int balance;
+  final String id;
+  final Color? color;
+  final int? target;
+  final int? amountSpent;
+  final IconData? icon;
 
   Wallet({
     required this.walletName,
@@ -211,25 +206,24 @@ class Wallet {
     required this.creationDate,
     required this.balance,
     required this.id,
-    this.color ,
+    this.color,
     this.target,
     this.amountSpent,
-    this.icon,  
-   
+    this.icon,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'walletName': walletName,
       'role': role.index,
-      'transactions':transactions.map( (key, value) => MapEntry(key, value.map((t) => t.toJson()).toList())),
+      'transactions': transactions.map(
+          (key, value) => MapEntry(key, value.map((t) => t.toJson()).toList())),
       'creationDate': creationDate,
       'balance': balance,
       'id': id,
       'color': color?.value ?? 0xFFFFFFFF,
       'target': target,
       'amountSpent': amountSpent,
-     
     };
   }
 
@@ -237,7 +231,8 @@ class Wallet {
     return Wallet(
       walletName: json['walletName'],
       role: WalletRole.values[json['role']],
-      transactions: json['transactions'].map((key, value) => MapEntry(key, value.map((t) => Transaction.fromJson(t)).toList())),
+      transactions: json['transactions'].map((key, value) =>
+          MapEntry(key, value.map((t) => Transaction.fromJson(t)).toList())),
       creationDate: json['creationDate'],
       balance: json['balance'],
       id: json['id'],
@@ -245,9 +240,7 @@ class Wallet {
       target: json['target'],
       amountSpent: json['amountSpent'],
       icon: IconData(json['icon'] as int),
-      
     );
-    
   }
 
   @override

@@ -89,13 +89,12 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
       ),
       initialRoute: Routes.settings,
-
       routes: {
         Routes.mainDashboard: (context) => MainDashboardView(),
         Routes.learnPage: (context) => LearnView(),
         Routes.transactionsPage: (context) => TransactionsView(),
-        Routes.wallets : (context) => WalletsView(),
-        Routes.settings: (context) => SettingsView(), 
+        Routes.wallets: (context) => WalletsView(),
+        Routes.settings: (context) => SettingsView(),
       },
     );
   }

@@ -80,7 +80,7 @@ class CustomOptionWidget extends StatelessWidget {
                             onTap: () {
                               onTap(i);
                             },
-                            subtitle: option.subtitle ,
+                            subtitle: option.subtitle,
                             leading: option.icon,
                             title: Text(option.title, style: option.titleStyle),
                             trailing: option.trailing,
